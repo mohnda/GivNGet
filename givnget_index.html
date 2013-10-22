@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>GivNGet Beta</title>		
+		<link rel="stylesheet" type="text/css" href="GivNGet_JS/css/master.css">
+
+
+		<script type="text/javascript" src="yui/build/yui/yui-min.js"></script>
+		<script type="text/javascript" src="master_config.js"></script>
+		<script type="text/javascript" src="home_view.js"></script>
+	</head>
+	<body>
+		<div id="basis">
+			<div id="topline">
+				<script>
+					YUI().use('home_view', 'node', 'event', function (Y) {
+						//
+						var topLineText = Y.Lang.sub(Y.HomeView.getTopLineTextView(), {
+							guestMessage: 'Hello Guest! You are not logged in.',
+							loginLinkMessage: 'Click here to login'
+						});
+						Y.one('#topline').append(topLineText);
+						//
+						var navigationList = ['Home', 'Browse tasks', 'Post a task', 'Sign in'];
+						var navigationHtml = '';
+						for (var i = 0; i < navigationList.length; i++) {
+							navigationHtml += Y.Lang.sub(Y.HomeView.getLinkListView(), { display_text: navigationList[i] });
+						}
+						Y.one('#firstList').append(navigationHtml);
+						//
+						var column_1 = Y.Lang.sub(Y.HomeView.getColumnView(), 
+							{
+								column_name: 'column_1',
+								header_text: 'Provide Help',
+								column_main_paragraph: 'Get paid to help people get tasks done.',
+								stepsList: 'giveHelpSteps'
+							}
+						);
+						var column_2 = Y.Lang.sub(Y.HomeView.getColumnView(), 
+							{
+								column_name: 'column_2',
+								header_text: 'Need Help?',
+								column_main_paragraph: 'Get someone to help you get things done.',
+								stepsList: 'getHelpSteps'
+							}
+						);
+						Y.one('#twoColumnsWrap').append(column_1);
+						Y.one('#twoColumnsWrap').append(column_2);
+						//
+						var giveHelpList = ['Find a task', 'Bid on the task', 'Get it done.'];
+						var giveHelpListHtml = '';
+						for (var i = 0; i < giveHelpList.length; i++) {
+							giveHelpListHtml += Y.Lang.sub(Y.HomeView.getSpanListView(), { text: giveHelpList[i] });
+						}
+						Y.one('#giveHelpSteps').append(giveHelpListHtml);
+						//
+						var getHelpList = ['Post your task', 'Select a helper', 'Get it done.'];
+						var getHelpListHtml = '';
+						for (var i = 0; i < getHelpList.length; i++) {
+							getHelpListHtml += Y.Lang.sub(Y.HomeView.getSpanListView(), { text: getHelpList[i] });
+						}
+						Y.one('#getHelpSteps').append(getHelpListHtml);
+
+					});
+				</script>
+					
+				<!--<div id="toplineText">
+					//Hello Guest! You are not logged in.
+					//<a href="/index" onclick="showLogin(); return false;">(Click here to login)</a>
+					//.
+				//</div>-->
+				<form id="loginForm" style="display:none;" onsubmit="md5(password,md5pass,md5pass_utf)" method="post" action="/login.php">
+					<input type="hidden" name="md5pass">
+					<input type="hidden" name="md5pass_utf">
+					<input type="hidden" value="1" name="login_process">
+					<input type="hidden" value="/main.php" name="redirect">
+					<label>username</label>
+					<input class="textField" type="text" name="username">
+					<label>password</label>
+					<input class="textField" type="password" name="password">
+					<input type="submit" style="display:none">
+					<span class="buttonImitator2">
+						<a href="/index#" onclick="submitLogin()">login</a>
+					</span>
+				</form>
+			</div>
+			
+			<div>
+				<a id="logo" href="/">
+					<img width="150" height="60" alt="givnget.co.nz" src="GivNGet_JS/image/GivNGet_original_logo.png">
+				</a>
+			</div>
+
+			<form id="searchForm" name="global" action="/search.php" method="get" autocomplete="off">
+				<input type="hidden" value="rfp" name="mode">
+				<input type="hidden" value="Go" name="submit">
+				<input id="tasks_keyword"  placeholder="Search..." class="textField" type="text" onkeypress="return keyPressed(event);" onkeyup="return keyUp(event);" maxlength="49" value="" name="keyword_text" size="20">
+				<div id="suggestResults"></div>
+				<input type="image" src="GivNGet_JS/image/search_icon.jpg" width="40" height="33" />
+			</form>
+			<div class="clear"> </div>
+			<div id="tagline">Where Kiwis Give and Get Help!</div>
+
+			<!-- Navigation Bar Section-->
+			<div id="navigation_bar" class="homepage_nav_green">
+				<ul id="firstList">
+
+				</ul>
+			</div>
+
+			<!-- Two Column (Giv & Get) Sections -->
+			<div id="twoColumnsWrap">
+				
+			</div>
+			
+			<div class="topic">
+				<h3>What is GivNGet?</h3>
+				<p>You can find someone to do ANYTHING on GivNGet.co.nz. Picking up drycleaning, mowing your lawn, and cooking your dinner are examples of tasks you can post.</p>
+				<a href="/static">Learn more about how it works</a>
+			</div>
+			<div class="topic">
+				<h3>How do I Give Help?</h3>
+				<p>People post their tasks on GivNGet.co.nz. All you have to do is bid on a task. If an employer accepts your bid, you do the task and then get paid!</p>
+				<a href="/static">Learn about getting stuff done</a>
+			</div>
+			<div class="topic">
+				<h3>How can I Get Help?</h3>
+				<p>Post a task and people will bid on your task. All you have to do is choose your most preferred candidate.They will get the task done and you pay them!</p>
+				<a href="/features">Learn more about making money</a>
+			</div>
+			<div id="footer">
+				<p id="FooterMenu">
+					<a href="/static">About Us</a>
+					<a href="/Knowledge_Base">FAQ</a>
+					<a href="/index">Work for Us</a>
+					<a href="/static">Contact Us</a>
+				</p>
+				<br>
+				Copyright © 2013 GivNGet.co.nz, all rights reserved.
+			</div>
+		</div>
+	</body>
+</html>

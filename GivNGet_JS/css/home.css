@@ -1,0 +1,153 @@
+
+#twoColumnsWrap {
+    background: url("/images/bg1.jpg") repeat-y scroll 0 0 transparent;
+    border-top: 8px solid #FFFFFF;
+    clear: both;
+    margin: 0 25px;
+    overflow: hidden;
+    padding-bottom: 14px;
+    width: 750px;
+}
+#column_1 {
+    background: url("/images/bg2.jpg") repeat-y scroll 0 0 #004773;
+    float: left;
+    width: 382px;
+}
+#column_1 .contentText {
+    background: url("/images/checkmark.jpg") no-repeat scroll 9px 19px transparent;
+}
+.contentText {
+    padding: 22px 0 19px 119px;
+}
+.contentText h2 {
+    border: 0 none;
+    color: #FFFFFF;
+    font-size: 26px;
+    font-weight: 400;
+    line-height: 28px;
+}
+.contentText p {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 18px;
+    padding: 16px 0 0 1px;
+}
+#column_1 .contentText p {
+    color: #80B3D4;
+}
+#twoColumnsWrap ol {
+    font-size: 18px;
+    line-height: 25px;
+    list-style-position: outside;
+    list-style-type: decimal;
+    padding: 0 0 15px 121px;
+}
+#twoColumnsWrap ol span {
+    color: #FFFFFF;
+}
+#column_1 ol {
+    color: #00263E;
+}
+.inset {
+    overflow: hidden;
+    padding: 22px 0 19px;
+    width: 100%;
+}
+#column_1 .inset {
+    background: url("/images/bg3.jpg") repeat-y scroll 0 0 transparent;
+}
+#column_1 .inset p {
+    color: #80B3D4;
+    float: left;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 27px;
+    padding: 0 10px 0 55px;
+}
+#column_1 .buttonImitator2 {
+    background: url("/images/corn3.gif") no-repeat scroll left top #003F67;
+    height: 30px;
+}
+#column_1 .buttonImitator2 a {
+    background: url("/images/corn4.gif") no-repeat scroll right top transparent;
+    font-size: 15px;
+    line-height: 27px;
+    padding: 0 14px 3px;
+}
+#column_2 {
+    background: url("/images/bg4.jpg") repeat-y scroll 0 0 #75AE05;
+    float: right;
+    width: 365px;
+}
+#column_2 .contentText {
+    background: url("/images/cash.gif") no-repeat scroll 0 22px transparent;
+}
+#column_2 .contentText p {
+    color: #283C00;
+}
+#column_2 ol {
+    color: #416100;
+}
+#column_2 .inset {
+    background: url("/images/bg5.jpg") repeat-y scroll 0 0 transparent;
+}
+#column_2 .textField {
+    border: 1px solid #608F04;
+    display: inline;
+    float: left;
+    font-size: 18px;
+    height: auto;
+    margin: 0 10px 0 45px;
+    padding: 2px 0;
+}
+#column_2 .buttonImitator2 {
+    background: url("/images/corn5.gif") no-repeat scroll left top #304700;
+    height: 30px;
+}
+#column_2 .buttonImitator2 a {
+    background: url("/images/corn6.gif") no-repeat scroll right top transparent;
+    font-size: 15px;
+    line-height: 27px;
+    padding: 0 14px 3px;
+}
+.topic {
+    color: #333333;
+    display: inline;
+    float: left;
+    font-size: 13px;
+    line-height: 17px;
+    margin: 39px 0 44px 26px;
+    width: 233px;
+}
+.topic h3 {
+    color: #0067A8;
+    font-size: 16px;
+    line-height: 18px;
+    padding: 0 0 14px;
+}
+.topic p {
+    padding-bottom: 5px;
+}
+.topic a {
+    text-decoration: none;
+}
+.topic p.quote {
+    background: url("/images/quote.gif") no-repeat scroll 0 4px transparent;
+    padding: 0 0 6px 34px;
+}
+#bottomLinks {
+    clear: both;
+    padding-bottom: 11px;
+    text-align: center;
+}
+#bottomLinks img {
+    margin: 0 25px;
+}
+#users {
+    clear: both;
+    color: #333333;
+    font-size: 18px;
+    padding-top: 15px;
+    text-align: center;
+    width: 100%;
+}

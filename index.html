@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Lightbox prototype</title>		
+		<link rel="stylesheet" type="text/css" href="lightbox/css/lightbox.css">
+	</head>
+	<body>
+		<div>
+			<button id="show_1">FreeTxt MHF Add</button>
+			<button id="show_2">FreeTxt MHF Edit</button>
+			<button id="show_3">FreeTxt EDS Prior Add</button>
+			<button id="show_4">FreeTxt EDS Prior Edit</button>
+			<button id="show_5">FreeTxt EDS Disch Add</button>
+			<button id="show_6">Adv Sig EDS Disch Add</button>
+			<button id="show_7">FreeTxt MRF Prior Change</button>
+		</div><br /><br />
+
+		<div id="lightboxContainer"></div>
+	
+		<script type="text/javascript" src="yui/build/yui/yui-min.js"></script>
+		<script type="text/javascript" src="lightbox_config.js"></script>
+		<script>
+			YUI().use('lightbox', 'node', 'event', function (Y) {
+				var lightbox;
+
+				Y.one('#show_1').on('click', function () { show_1(); });
+				Y.one('#show_2').on('click', function () { show_2(); });
+				Y.one('#show_3').on('click', function () { show_3(); });
+				Y.one('#show_4').on('click', function () { show_4(); });
+				Y.one('#show_5').on('click', function () { show_5(); });
+				Y.one('#show_6').on('click', function () { show_6(); });
+				Y.one('#show_7').on('click', function () { show_7(); });
+
+				// MHF add med
+				function show_1() {
+					var	lightboxConfig = {
+							headings : {primary : 'Add Medication Prior to Admission'},
+							drug_component : {generics : {}},
+							supply : {type : 'simple'},
+							comments : {heading : 'Comments'},
+							colour : 'blue',
+							type : {med : 'prior', operation : 'add'}
+					};
+					var lbnode = Y.one('#lightboxContainer');
+
+					lightbox = new Y.MedLightBox({ lightboxConfig : lightboxConfig, lbnode : lbnode });
+				}
+
+				// MHF edit med
+				function show_2() {
+/*
+					var med = {
+						advancedSigFreeText	: false,
+						brandName			: '',
+						brandRestricted		: false,
+						closeControl		: false,
+						code				: '10540111000116103',
+						codingType			: 'GENERIC-NZMT',
+						controlledDrug		: true,
+						dose				: "3",
+						doseUnit			: "tablet",
+						drugActiveUnit		: '',
+						drugForm			: 'tablet',
+						freqType			: 'times',
+						frequency			: '8',
+						frequencyUnit		: 'daily',
+						fullDrugName		: 'pethidine hydrochloride 100 mg tablet',
+						generic				: 'pethidine hydrochloride',
+						instructions		: 'no additional comments',
+						isCompositePack		: false,
+						mitte				: '',
+						prn					: true,
+						quantity			: '',
+						quantityUnit		: '',
+						route				: 'oral',
+						rx					: 'pethidine hydrochloride 100 mg tablet',
+						script				: true,
+						sig					: '3 tablet 8 times daily oral as required. no additional comments',
+						strength			: '',
+						subsidy				: 'S'
+					}
+*/
+					var med = {
+						advancedSigFreeText	: false,
+						brandName			: '',
+						brandRestricted		: false,
+						closeControl		: false,  			// Blister Pack
+						code				: '10540111000116103',
+						codingType			: 'GENERIC-NZMT',
+						controlledDrug		: true,
+						dose				: '',				// fff
+						doseUnit			: '',				// fff
+						drugActiveUnit		: '',
+						drugForm			: 'tablet',
+						freqType			: '',				// fff
+						frequency			: '',				// fff
+						frequencyUnit		: '',				// fff
+						fullDrugName		: 'pethidine hydrochloride 100 mg tablet',
+						generic				: 'pethidine hydrochloride',
+						instructions		: '',				// fff additional
+						isCompositePack		: false,
+						mitte				: '',				// mitte normal
+						prn					: true,
+						quantity			: '',				// Mitte Adv Ctrl
+						quantityUnit		: '',				// Mitte Adv Ctrl
+						route				: '',				// fff
+						rx					: 'pethidine hydrochloride 100 mg tablet',
+						script				: true, 			// Supply on Disch
+						sig					: '3 tablet 8 times daily oral as required.',  // freetxt instructions | fff readonly
+						strength			: '',
+						subsidy				: 'S',
+						comments 			: 'these taste good...',  // really unsure were these come from in real life
+						indication 			: ''  // really unsure were these come from in real life
+					}
+
+					var	lightboxConfig = {
+							headings : {primary : 'Edit Medication Prior to Admission'},
+							drug_component : {generics : {}},
+							supply : {type : 'simple'},
+							comments : {message : null, heading : 'Comments', required : false},
+							colour : 'blue',
+							type : {med : 'prior', operation : 'edit'} // TODO can get rid of this through other means eg add is obvious if medication == null?
+					};
+					var medData = {primary : med, secondary : null};
+					var lbnode = Y.one('#lightboxContainer');
+
+					lightbox = new Y.MedLightBox({ lightboxConfig : lightboxConfig, medData : medData, lbnode : lbnode });
+				}
+
+				// EDS add Free Text med
+				function show_3() {
+					var	lightboxConfig = {
+							headings : {primary : 'Add Medication Prior to Admission'},
+							flow_warning : 'Adding to a confirmed list of medications prior to admission should be done rarely and only when there is good evidence that it is incorrect',
+							drug_component : {generics : {}},
+							supply : {type : 'simple'},
+							colour : 'blue',
+							type : {med : 'prior', operation : 'add'}
+					};
+					var lbnode = Y.one('#lightboxContainer');
+
+					lightbox = new Y.MedLightBox({ lightboxConfig : lightboxConfig, lbnode : lbnode });
+				}
+
+				function show_4() {
+					var med = {
+						advancedSigFreeText	: false,
+						brandName			: '',
+						brandRestricted		: false,
+						closeControl		: false,  			// Blister Pack
+						code				: '10540111000116103',
+						codingType			: 'GENERIC-NZMT',
+						controlledDrug		: true,
+						dose				: '',				// fff
+						doseUnit			: '',				// fff
+						drugActiveUnit		: '',
+						drugForm			: 'tablet',
+						freqType			: '',				// fff
+						frequency			: '',				// fff
+						frequencyUnit		: '',				// fff
+						fullDrugName		: 'pethidine hydrochloride 100 mg tablet',
+						generic				: 'pethidine hydrochloride',
+						instructions		: '',				// fff additional
+						isCompositePack		: false,
+						mitte				: '',				// mitte normal
+						prn					: true,
+						quantity			: '',				// Mitte Adv Ctrl
+						quantityUnit		: '',				// Mitte Adv Ctrl
+						route				: '',				// fff
+						rx					: 'pethidine hydrochloride 100 mg tablet',
+						script				: true, 			// Supply on Disch
+						sig					: '3 tablet 8 times daily oral as required.',  // freetxt instructions | fff readonly
+						strength			: '',
+						subsidy				: 'S',
+						comments 			: 'these taste good...',  // really unsure were these come from in real life
+						indication 			: ''  // really unsure were these come from in real life
+					}
+
+					var	lightboxConfig = {
+							headings : {primary : 'Edit Medication Prior to Admission'},
+							drug_component : {generics : {}},
+							drug_warning : 'Editing confirmed medications prior to admission should be done rarely and only when there is good evidence that it is incorrect',
+							supply : {type : 'simple'},
+							colour : 'blue',
+							type : {med : 'prior', operation : 'edit'} // TODO can get rid of this through other means eg add is obvious if medication == null?
+					};
+					var medData = {primary : med, secondary : null};
+					var lbnode = Y.one('#lightboxContainer');
+
+					lightbox = new Y.MedLightBox({ lightboxConfig : lightboxConfig, medData : medData, lbnode : lbnode });
+				}
+
+				// EDS add disc med
+				function show_5() {
+					var	lightboxConfig = {
+							headings : {primary : 'Add Discharge Medication'},
+							drug_component : {generics : {}},
+							supply : {type : 'mitte', defaultChecked : true},
+							indication : {heading : 'Indication'},
+							colour : 'green',
+							type : {med : 'after', operation : 'add'}
+					};
+					var lbnode = Y.one('#lightboxContainer');
+
+					lightbox = new Y.MedLightBox({ lightboxConfig : lightboxConfig, lbnode : lbnode });
+				}
+
+				// EDS add disc med (ADV SIG)
+				function show_6() {
+					var	lightboxConfig = {
+							headings : {primary : 'Add Discharge Medication'},
+							drug_component : {generics : {}},
+							intendedDuration : true,
+							supply : {type : 'mitte', defaultChecked : true},
+							indication : {heading : 'Indication'},
+							colour : 'green',
+							type : {med : 'after', operation : 'add'}
+					};
+					var	advSig = true;
+					var lbnode = Y.one('#lightboxContainer');
+
+					lightbox = new Y.MedLightBox({ lightboxConfig : lightboxConfig, advSig : advSig, lbnode : lbnode });
+				}
+
+				// MRF prior change FreeTxt
+				function show_7() {
+					var med = {
+						advancedSigFreeText	: false,
+						brandName			: '',
+						brandRestricted		: false,
+						closeControl		: false,  			// Blister Pack
+						code				: '10212491000116101',
+						codingType			: 'GENERIC-NZMT',
+						controlledDrug		: false,
+						dose				: '',				// fff
+						doseUnit			: '',				// fff
+						drugActiveUnit		: '',
+						drugForm			: 'capsule',
+						freqType			: '',				// fff
+						frequency			: '',				// fff
+						frequencyUnit		: '',				// fff
+						fullDrugName		: 'paracetamol 500 mg capsule',
+						generic				: 'paracetamol',
+						instructions		: '',				// fff additional
+						isCompositePack		: false,
+						mitte				: '',				// mitte normal
+						prn					: true,
+						quantity			: '',				// Mitte Adv Ctrl
+						quantityUnit		: '',				// Mitte Adv Ctrl
+						route				: '',				// fff
+						rx					: 'paracetamol 500 mg capsule',
+						script				: true, 			// Supply on Disch
+						sig					: '3 capsules 2 times daily oral as required.',  // freetxt instructions | fff readonly
+						strength			: '',
+						subsidy				: 'S',
+						comments 			: "I'm high... on paracetamol :)",  // really unsure were these come from in real life
+						indication 			: ''  // really unsure were these come from in real life
+					}
+
+					var	lightboxConfig = {
+							headings : {primary : 'Change Medication', secondary : 'Intended Different'},
+							drug_component : {generics : {}},
+							supply : {type : 'simple'},
+							comments : {heading : 'Reason/Comment', required : true},
+							colour : 'orange',
+							type : {med : 'prior', operation : 'change'} //TODO: why do we need med:prior etc?
+					};
+					var medData = {primary : med, secondary : null};
+					var lbnode = Y.one('#lightboxContainer');
+					
+					lightbox = new Y.MedLightBox({ lightboxConfig : lightboxConfig, medData : medData, lbnode : lbnode });
+				}			
+			});
+		</script>
+	</body>
+</html>

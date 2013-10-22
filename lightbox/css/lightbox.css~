@@ -1,0 +1,274 @@
+.lightboxContainer {
+	width : 562px;
+	height: 460px;
+	border : 1px solid black;
+	padding-left : 7px;
+	padding-right : 7px;
+	padding-bottom : 20px;
+	position:relative;
+}
+.lightbox_blue {
+	background-color: #EDF3FA;
+}
+.lightbox_green {
+	background-color: #E2F3D4;
+}
+.lightbox_orange {
+	background-color: #FEEFE2;
+}
+.fieldError {
+	background-color : #f5d8d8 !important;
+	border : 1px solid #be0000 !important;
+}
+#buttonModuleNode {
+	position : absolute;
+	bottom : 20px;
+}
+.durationLink {
+	font-size : 0.8em;
+	color : blue;
+}			
+.durationLink:hover {
+	text-decoration:underline; 
+	cursor:pointer;
+}
+.fixed_period {
+	display : none;
+}
+.fixed_period.show {
+	display : inline;
+}
+.section {
+	margin-top : 10px;
+}
+.instructionsGroup {
+	border : 1px solid lightgray;
+	padding : 6px;
+	position:relative;
+}
+.instructionsLabel {
+	float : left;
+	width : 48%;
+}
+.switchLink {
+	float : right;
+	color : #3333FF;
+	text-align:right;
+	width : 48%;
+}
+.switchLink:hover {
+	text-decoration:underline;
+}
+
+.requiredField {
+	color : red;
+}
+.notRequired .requiredField {
+	display : none;
+}
+.freeTextWarning {
+	color : red;
+	font-size : 9pt;
+}
+.drug_results {
+	vertical-align: middle
+}
+
+.alert {
+	color : red;
+	font-weight: bold;
+}
+
+#atomised_drug {
+	width : 100%;
+	text-align:left;
+	border-spacing:0;
+	border-collapse:collapse;
+}
+
+#atomised_dose {
+	width : 72px;
+}
+
+#atomised_form {
+	width : 82px;
+}
+
+#atomised_frequency {
+	width : 270px;
+}
+
+#atomised_route {
+	width : 80px;
+}
+
+#result_description {
+	font-weight: bold;
+}
+
+h2 {
+	color : #003f52;
+	font-size : 16px;
+	padding : 0px;
+	margin-bottom : 2px;
+	font-weight : bold;
+	white-space : nowrap;
+}
+
+h3 {
+	color : #000000;
+	font : 13px Arial, helvetica, sans-serif;
+	font-family : arial, helvetica, sans-serif;
+	font-size: 10pt;
+	font-weight: bold;
+	margin-top : 0px;
+}
+
+.lightlabel {
+	font-family : arial, helvetica, sans-serif;
+	font-size : 10pt;
+	color : #2d2d2e;
+	font-weight : normal;
+}
+
+.textarea {
+	width : 460px;
+	font-family : arial, helvetica, sans-serif;
+	font-size : 10pt;
+	color : #2d2d2e;
+	font-weight : normal;
+}
+
+.durationTextBox {
+	width : 150px;
+}
+.quantityTextBox {
+	width : 60px;
+	margin-right: 6px;
+}
+.atomisedDurationTextBox {
+	width : 70px;
+}
+
+.atomisedDurationUnitsTextBox {
+	width : 70px;
+}		
+
+#brandImage:hover {
+	background : url(../images/info_hover.png);
+	z-index : 2;
+}
+
+.hidden {
+	display : none;
+}
+
+.fakeLink {
+	color : blue;
+	white-space:nowrap;
+}			
+
+.fakeLink:hover {
+	text-decoration:underline; 
+	cursor:pointer;
+}
+			
+/* drug search */
+.ac-input {
+	margin-top: 0px;
+	padding-top: 0px;
+}
+
+#drop_button {
+	position : absolute;
+	width : 20px;
+	height: 20px;
+	right : -6px;
+	top : 2px;
+}
+
+#replacer {
+	position : relative;
+	width : 460px;
+	float : left;
+}
+#replacer_image_container {
+	float : right; 
+	padding-top : 3px;
+	width: 90px;
+}
+#replacer_controlled_icon {
+	padding-left: 5px;
+}
+#replacer_restricted_icon {
+	padding-left: 5px;
+}
+.subsidy_S {
+	color : green;
+}
+
+.subsidy_PS {
+	color : blue;
+}
+.yui3-aclist-content {
+	display: inline-block;
+	overflow: auto;
+	max-height: 360px;
+	background: #fff;
+	border: 1px solid #afafaf;
+}
+.yui3-aclist-input {
+	width : 460px;
+}
+.yui3-aclist-item {
+	border-bottom : 1px solid #86aee7;
+	padding-left : 3px;
+}
+.yui3-aclist-item-active, .yui3-aclist-item-hover{
+	border: 1px #86aee7 solid;
+	background-color: #FFEFD0;
+	cursor: default;
+}
+
+.showList .yui3-aclist {
+	visibility: visible;
+}
+
+.showList .yui3-aclist-hidden {
+	visibility: visible;
+}
+
+.hideList .yui3-aclist {
+	visibility: hidden;
+}
+
+.hidelist .yui3-aclist.yui3-aclist-hidden {
+	visibility: hidden;
+}
+
+/* drop down list formatting */
+
+div.drugresult {
+	position : relative;
+}
+div.searchIconColOne, div.searchIconColTwo {
+	display: none;
+	height: 16px;
+	width: 16px;
+	position: absolute; 
+	top: 2px;
+}
+div.searchIconColOne {	
+	right: 21px;	
+}
+div.searchIconColTwo {
+	right: 2px;
+}
+div.ControlledDrug div.ControlledIcon {
+	display: inline;
+	background-image:url(../images/controlledDrug.png);
+}
+div.BrandRestrictedDrug div.BrandRestrictedIcon {
+	display: inline;
+	background-image:url(../images/brand-restricted.png);	
+}
